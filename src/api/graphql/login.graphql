@@ -1,0 +1,33 @@
+mutation Login($username: String!, $password: String!) {
+	login(password: $password, username: $username) {
+		access_token
+		user {
+			displayName
+			id
+			password
+			role
+			username
+			faculty {
+				display_name
+				faculty_id
+				full_name
+				is_displayed
+			}
+			lecturer {
+				display_name
+				email
+				faculty_id
+				gender
+				learning
+				learning_position
+				lecturer_id
+				mscb
+				ngach
+				phone
+				position
+				total_point
+				username
+			}
+		}
+	}
+}

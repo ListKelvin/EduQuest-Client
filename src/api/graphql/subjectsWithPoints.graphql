@@ -1,0 +1,31 @@
+query SubjectsWithPoints($filter: FilterArgs, $sort: SortArgs, $page: Int) {
+	subjects(filter: $filter, sort: $sort, pagination: { page: $page, size: 10 }) {
+		data {
+			display_name
+			faculty_id
+			subject_id
+			total_point
+			faculty {
+				display_name
+				faculty_id
+				full_name
+			}
+			points(filter: $filter) {
+				average_point
+				class_num
+				id
+				max_point
+				point
+				display_name
+			}
+		}
+		meta {
+			hasNext
+			hasPrev
+			page
+			size
+			total_item
+			total_page
+		}
+	}
+}

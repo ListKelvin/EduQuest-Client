@@ -1,0 +1,41 @@
+query LecturerstWithPoints($filter: FilterArgs, $sort: SortArgs, $page: Int) {
+	lecturers(filter: $filter, sort: $sort, pagination: { page: $page, size: 10 }) {
+		data {
+			birth_date
+			display_name
+			email
+			faculty_id
+			gender
+			learning
+			learning_position
+			lecturer_id
+			mscb
+			ngach
+			phone
+			position
+			total_point
+			username
+			faculty {
+				display_name
+				faculty_id
+				full_name
+			}
+			points(filter: $filter) {
+				average_point
+				class_num
+				id
+				max_point
+				point
+				display_name
+			}
+		}
+		meta {
+			hasNext
+			hasPrev
+			page
+			size
+			total_item
+			total_page
+		}
+	}
+}

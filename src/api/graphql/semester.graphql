@@ -1,0 +1,8 @@
+query Semesters {
+    semesters {
+        display_name
+        semester_id
+        type
+        year
+    }
+}

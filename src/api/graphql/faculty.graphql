@@ -1,0 +1,17 @@
+query Faculties {
+	faculties(pagination: { size: 100 }) {
+		data {
+			display_name
+			faculty_id
+			full_name
+		}
+	}
+}
+
+query DetailFaculty($id: String!) {
+	faculty(id: $id) {
+		display_name
+		faculty_id
+		full_name
+	}
+}

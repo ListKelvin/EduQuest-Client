@@ -1,0 +1,53 @@
+query DetailSubject($id: String!) {
+	subject(id: $id) {
+		display_name
+		faculty_id
+		subject_id
+		total_point
+		faculty {
+			display_name
+			faculty_id
+			full_name
+			is_displayed
+		}
+	}
+}
+
+query Subjects($keyword: String, $isAscending: Boolean, $page: Int) {
+	subjects(
+		filter: { keyword: $keyword }
+		pagination: { page: $page, size: 10 }
+		sort: { isAscending: $isAscending }
+	) {
+		data {
+			display_name
+			faculty_id
+			subject_id
+			total_point
+			faculty {
+				display_name
+				faculty_id
+				full_name
+			}
+		}
+		meta {
+			hasNext
+			hasPrev
+			page
+			size
+			total_item
+			total_page
+		}
+	}
+}
+
+query AllSubjects($filter: FilterArgs, $sort: SortArgs) {
+	subjects(filter: $filter, sort: $sort, pagination: { page: 0, size: 1000 }) {
+		data {
+			display_name
+			faculty_id
+			subject_id
+			total_point
+		}
+	}
+}

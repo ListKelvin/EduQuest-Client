@@ -1,0 +1,63 @@
+query PointsEachSemester(
+	$groupEntity: String!
+	$class_type: String
+	$faculty_id: String
+	$lecturer_id: String
+	$criteria_id: String
+	$semester_id: String
+	$program: String
+	$subjects: [String!]
+) {
+	groupedPoints(
+		groupEntity: $groupEntity
+		size: 30
+		class_type: $class_type
+		faculty_id: $faculty_id
+		lecturer_id: $lecturer_id
+		criteria_id: $criteria_id
+		semester_id: $semester_id
+		program: $program
+		subjects: $subjects
+	) {
+		data {
+			average_point
+			class_num
+			display_name
+			id
+			max_point
+			point
+		}
+	}
+}
+
+query PointsWithGroupBy(
+	$groupEntity: String!
+	$class_type: String
+	$faculty_id: String
+	$lecturer_id: String
+	$criteria_id: String
+	$semester_id: String
+	$program: String
+	$subjects: [String!]
+) {
+	groupedPoints(
+		groupEntity: $groupEntity
+		size: 200
+		class_type: $class_type
+		faculty_id: $faculty_id
+		lecturer_id: $lecturer_id
+		criteria_id: $criteria_id
+		semester_id: $semester_id
+		program: $program
+		subjects: $subjects
+	) {
+		data {
+			average_point
+			class_num
+			display_name
+			id
+			max_point
+			point
+		}
+	}
+}
